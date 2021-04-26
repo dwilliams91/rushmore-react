@@ -19,14 +19,14 @@ export const Login = props => {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                username: email.current.value,
+                email: email.current.value,
                 password: password.current.value
             })
         })
             .then(res => res.json())
             .then(res => {
                 if ("valid" in res && res.valid) {
-                    localStorage.setItem("supply_us_id", res.token)
+                    localStorage.setItem("rushmore_id", res.token)
                     
                   
                     
