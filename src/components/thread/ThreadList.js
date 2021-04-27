@@ -8,6 +8,7 @@ export const ThreadList=()=>{
         getThreads()
         console.log("what what")
     },[])
+    console.log("dude")
 
     return(
         <>

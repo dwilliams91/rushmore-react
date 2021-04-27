@@ -1,27 +1,27 @@
-import react, {useState} from "react"
+import React, { useState } from "react"
 
-export const ThreadContext= react.createContext()
+export const ThreadContext = React.createContext()
 
-export const ThreadProvider=()=>{
+export const ThreadProvider = (props) => {
+    const [Threads, setThreads] = useState([])
 
-    const [Threads, setThreads]= useState([])
-    
-    const getThreads=()=>{
+    const getThreads = () => {
         return fetch("http://localhost:8000/threads", {
-        headers:{
+        headers: {
             "Authorization": `Token ${localStorage.getItem("rushmore_id")}`
             }
         })
-        .then(res=> res.json())
-        .then(setThreads)
+            .then(res => res.json())
+            .then(setThreads)
     }
-
-    return(
+    
+    
+    return (
         <ThreadContext.Provider value={{
             Threads, getThreads, setThreads
         }}>
-
-
+            {props.children}
         </ThreadContext.Provider>
+
     )
 }
