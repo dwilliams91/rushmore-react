@@ -1,9 +1,18 @@
 import react from "react"
+import { Route } from "react-router-dom"
 
-export const ApplicationViews=()=>{
+import { ThreadList } from "./thread/ThreadList"
+import { ThreadProvider } from "./thread/ThreadProvider"
+
+export const ApplicationViews=(props)=>{
     return(
     <>
-    <p> hello</p>
+    <ThreadProvider>
+        <Route exact path="/">
+            <ThreadList></ThreadList>
+        </Route>
+    </ThreadProvider>
+    <p> say what</p>
     </>
     )
 }
