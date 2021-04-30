@@ -14,7 +14,9 @@ export const ThreadList=()=>{
         return(
             <>
             <div>
-            <p>{thread.title}</p>
+                <Link to={{
+                    pathname:`/thread/${thread.thread.id}`
+                }}>{thread.thread.title}</Link>
             </div>
             </>
         )
