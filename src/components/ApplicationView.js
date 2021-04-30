@@ -7,7 +7,6 @@ import { ThreadProvider } from "./thread/ThreadProvider"
 export const ApplicationViews = (props) => {
     return (
         <>
-            <p>upper</p>
             <ThreadProvider>
                 <Route exact path="/threads">
                     <ThreadList></ThreadList>
@@ -15,7 +14,6 @@ export const ApplicationViews = (props) => {
             </ThreadProvider>
 
 
-            <p> say what</p>
         </>
     )
 }

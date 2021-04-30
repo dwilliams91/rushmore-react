@@ -1,4 +1,5 @@
 import react, { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { ThreadContext } from "./ThreadProvider"
 
 export const ThreadList=()=>{
@@ -6,14 +7,25 @@ export const ThreadList=()=>{
 
     useEffect(()=>{
         getThreads()
-        console.log("what what")
     },[])
-    console.log("dude")
+
+    const ThreadCard=(thread)=>{
+        console.log(thread)
+        return(
+            <>
+            <div>
+            <p>{thread.title}</p>
+            </div>
+            </>
+        )
+    }
 
     return(
         <>
-        {console.log(Threads)}
-        <p>whats up</p>
+        <h2> Threads</h2>
+        {Threads.map(singleThread=>{
+            return <ThreadCard key={singleThread.id} thread={singleThread}/>
+        })}
         </>
     )
 
